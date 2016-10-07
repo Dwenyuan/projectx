@@ -149,8 +149,4 @@
     .page-split {
         height: 50%;
     }
-    
-    .well {
-        margin-bottom: 0
-    }
 </style>

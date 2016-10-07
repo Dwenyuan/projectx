@@ -24,5 +24,7 @@
     }
 </script>
 <style>
-
+    .well {
+        margin-bottom: 0
+    }
 </style>
