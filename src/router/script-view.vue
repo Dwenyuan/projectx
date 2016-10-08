@@ -16,7 +16,7 @@
                         <div class="col-md-2">
                             <div class="panel">
                                 <div class="panel-body well">
-                                    <div>script1</div>
+                                    <div class="col-md-12">脚本名称</div>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +76,11 @@
                             <div class="panel">
                                 <div class="panel-body well">script6</div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right"><a href="" class="btn btn-primary">增加</a></div>
                         </div>
                     </div>
                 </div>

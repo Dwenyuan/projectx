@@ -1,14 +1,18 @@
 <template>
     <div class="row">
         <div class="col-md-2">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">body</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">场景1</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">body</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">场景2</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -16,12 +20,14 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="col-md-2 btn btn-primary">响应监控</div>
-                        <div class="col-md-2 btn btn-primary">概要</div>
-                        <div class="col-md-2 btn btn-primary">报表</div>
-                        <div class="col-md-2 btn btn-primary">错误统计</div>
-                        <div class="col-md-2 btn btn-primary">概要</div>
-                        <div class="col-md-2 btn btn-primary">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-md-1 btn btn-primary">响应监控</div>
+                            <div class="col-md-1 btn btn-primary">概要</div>
+                            <div class="col-md-1 btn btn-primary">报表</div>
+                            <div class="col-md-1 btn btn-primary">错误统计</div>
+                            <div class="col-md-1 btn btn-primary">概要</div>
+                            <div class="col-md-7 btn btn-primary">&nbsp;</div>
+                        </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-2">
@@ -49,14 +55,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">报告</div>
-                    <div class="panel-body">
-
+                        <hr>
+                        <div class="col-md-12">
+                            <div class="panel-heading">报告</div>
+                            <div class="panel-body">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
