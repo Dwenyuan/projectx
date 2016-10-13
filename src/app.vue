@@ -1,4 +1,5 @@
 <template>
+    {{getScripts}}
     <page-header></page-header>
     <router-view></router-view>
     <!--<script-view></script-view>-->
@@ -7,6 +8,9 @@
 import PageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
 import store from './vuex/store'
+import {
+    getScripts
+} from './vuex/getters'
 export default {
     replace: false,
     ready() {
@@ -19,8 +23,8 @@ export default {
     },
     store,
     vuex: {
-        getters:{
-            
+        getters: {
+            getScripts
         }
     },
     components: {

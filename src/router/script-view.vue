@@ -16,7 +16,7 @@
                         <div class="col-md-2">
                             <div class="panel">
                                 <div class="panel-body well">
-                                    <div class="col-md-12">脚本名称</div>
+                                    <div class="col-md-12">{{getScripts}}</div>
                                 </div>
                             </div>
                         </div>
@@ -139,19 +139,34 @@
     </div>
 </template>
 <script>
-    export default {
-        ready() {
+import store from '../vuex/store'
+import {
+    getScripts
+} from '../vuex/getters'
+export default {
+    props: [],
+    ready() {
+
+    },
+    store,
+    vuex: {
+        actions: {
 
         },
-        data() {
-            return {
+        getters: {
+            getScripts
+        }
+    },
+    computed: {},
+    data() {
+        return {
 
-            }
         }
     }
+}
 </script>
 <style>
-    .page-split {
-        height: 50%;
-    }
+.page-split {
+    height: 50%;
+}
 </style>

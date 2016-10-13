@@ -1,0 +1,1 @@
+export const getScripts = state => state.scripts
