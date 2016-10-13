@@ -73,16 +73,16 @@
     </div>
 </template>
 <script>
-export default {
-    ready(){
+    export default {
+        ready() {
 
-    },
-    data(){
-        return {
+        },
+        data() {
+            return {
 
+            }
         }
     }
-}
 </script>
 <style>
     .plus-bg {

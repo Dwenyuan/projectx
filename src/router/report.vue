@@ -3,8 +3,8 @@
         <div class="col-md-2">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">场景1</div>
+                    <div class="panel-body">
+                        <a href="javascript:void(0)" class="btn btn-default btn-block">场景1</a>
                     </div>
                 </div>
             </div>
@@ -68,17 +68,17 @@
     </div>
 </template>
 <script>
-    export default{
-        ready(){
+export default {
+    props: [],
+    ready() {
 
-        },
-        data(){
-            return{
+    },
+    data() {
+        return {
 
-            }
         }
     }
+}
 </script>
 <style>
-
 </style>
