@@ -8,8 +8,8 @@
     "build": "webpack --progress --hide-modules --config webpack.production.js"
   },
   "dependencies": {
-    "vue-router": "^0.7.6",
-    "vue": "^1.0.8"
+    "vue": "^2.0.3",
+    "vue-router": "^2.0.1"
   },
   "repository": "https://github.com/liushao121/projectx.git",
   "devDependencies": {
@@ -28,6 +28,7 @@
     "vue-loader": "^7.0.3",
     "vue-resource": "^1.0.3",
     "vuex": "^2.0.0",
+    "vuex-router-sync": "^3.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"
   },

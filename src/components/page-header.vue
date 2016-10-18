@@ -9,16 +9,20 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="">
-							<a rel="nofollow" href="#" v-link="'script'">脚本</a>
+							<!--<a rel="nofollow" href="#" v-link="'script'">脚本</a>-->
+							<router-link to="/script">脚本</router-link>
 						</li>
 						<li>
-							<a rel="nofollow" href="#" v-link="'scene'">场景</a>
+							<!--<a rel="nofollow" href="#" v-link="'scene'">场景</a>-->
+							<router-link to="/scene">场景</router-link>
 						</li>
 						<li>
-							<a rel="nofollow" href="#" v-link="'test'">测试</a>
+							<!--<a rel="nofollow" href="#" v-link="'test'">测试</a>-->
+							<router-link to="/test">测试</router-link>
 						</li>
 						<li>
-							<a rel="nofollow" href="#" v-link="'report'">报告</a>
+							<!--<a rel="nofollow" href="#" v-link="'report'">报告</a>-->
+							<router-link to="/report">报告</router-link>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -53,9 +57,9 @@
     }
 </script>
 <style>
-	.logo {
-		height: 100%;
-		height: calc(100% + 30px);
-		margin: -15px;
-	}
+    .logo {
+        height: 100%;
+        height: calc(100% + 30px);
+        margin: -15px;
+    }
 </style>

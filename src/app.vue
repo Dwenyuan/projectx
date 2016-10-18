@@ -1,16 +1,16 @@
 <template>
-    {{getScripts}}
-    <page-header></page-header>
-    <router-view></router-view>
-    <!--<script-view></script-view>-->
+    <div>
+        <page-header></page-header>
+        <router-view></router-view>
+    </div>
 </template>
 <script>
-import PageHeader from './components/page-header.vue'
+import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
-import store from './vuex/store'
 import {
-    getScripts
-} from './vuex/getters'
+    mapGetters,
+    mapActions
+} from 'vuex'
 export default {
     replace: false,
     ready() {
@@ -21,14 +21,11 @@ export default {
             text: 'vue'
         }
     },
-    store,
-    vuex: {
-        getters: {
-            getScripts
-        }
-    },
+    computed: mapGetters([
+        'getScripts'
+    ]),
     components: {
-        PageHeader,
+        pageHeader,
         scriptView
     }
 }

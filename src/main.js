@@ -1,34 +1,13 @@
 import Vue from 'vue'
 import Resource from 'vue-resource'
 import app from './app.vue'
-import scriptView from './router/script-view.vue'
-import scene from './router/scene.vue'
-import report from './router/report.vue'
-import VueRouter from 'vue-router'
-// import store from './vuex/store'
+import router from './router/mainRouter'
+import store from './vuex/store'
+import { sync } from 'vuex-router-sync'
 
 import './styles.css'
 
 Vue.config.debug = process.env.NODE_ENV !== 'production'
-
-Vue.use(VueRouter)
+sync(store, router)
 Vue.use(Resource)
-
-const router = new VueRouter()
-const App = Vue.extend(app)
-
-router.map({
-    '/script': {
-        component: scriptView
-    },
-    '/scene': {
-        component: scene
-    },
-    '/report': {
-        component: report
-    }
-})
-router.redirect({
-    '/': '/script'
-})
-router.start(App, 'body')
+const index = new Vue({ render: h => h(app), router, store }).$mount('#app')

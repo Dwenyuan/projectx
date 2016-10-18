@@ -20,5 +20,10 @@ module.exports = {
             { test: /\.css$/, loader: 'style-loader!css-loader' }
         ]
     },
-    devtool: '#source-map'
+    devtool: '#source-map',
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
+        }
+    }
 }
