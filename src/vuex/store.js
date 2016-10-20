@@ -11,7 +11,7 @@ const state = {
 
 const mutations = {
     activeScript(state, { script }) {
-        activeScript = script
+        state.activeScript = script
     }
 }
 
