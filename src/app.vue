@@ -1,5 +1,6 @@
 <template>
     <div>
+        <script-manager></script-manager>
         <page-header></page-header>
         <router-view></router-view>
     </div>
@@ -7,6 +8,7 @@
 <script>
 import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
+import scriptManager from './components/script-manager.vue'
 import {
     mapGetters,
     mapActions
@@ -26,7 +28,8 @@ export default {
     ]),
     components: {
         pageHeader,
-        scriptView
+        scriptView,
+        scriptManager
     }
 }
 </script>

@@ -24,7 +24,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="pull-right"><a href="" class="btn btn-primary">增加</a></div>
+                                <div class="pull-right"><a href="#scriptManager" data-toggle="modal" class="btn btn-primary">增加</a></div>
                             </div>
                         </div>
                     </div>
