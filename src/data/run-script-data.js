@@ -7,5 +7,6 @@ var createData = num => {
             name: '测试' + i
         })
     }
+    return result
 }
 export default createData(20)

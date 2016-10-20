@@ -14,68 +14,11 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-12">
-                            <div class="col-md-2">
+                            <div class="col-md-2" @click="activeScript(item)" v-for="item in getScripts">
                                 <div class="panel">
                                     <div class="panel-body well">
-                                        <div class="col-md-12">{{getScripts}}</div>
+                                        <div class="col-md-12">{{item.name}}</div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script2</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script3</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script4</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script5</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script6</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script1</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script2</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script3</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script4</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script5</div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="panel">
-                                    <div class="panel-body well">script6</div>
                                 </div>
                             </div>
                         </div>
@@ -150,17 +93,10 @@ export default {
     ready() {
 
     },
-    vuex: {
-        actions: {
-
-        },
-        getters: {
-            getScripts: state => state.scripts
-        }
-    },
     computed: mapGetters([
         'getScripts'
     ]),
+    methods: mapActions(['activeScript']),
     data() {
         return {
 
