@@ -1,8 +1,12 @@
 <template>
     <div class="row">
         <div class="col-md-2">
-            <div class="col-sm-12 list-group" v-for="item in getTasks">
-                <a class="list-group-item" @click="activeTask(item)">{{item.name}}</a>
+            <div class="row" v-for="item in getTasks">
+                <div class="col-xs-12" @click="activeTask(item)">
+                    <div class="panel-body">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-block">{{item.name}}</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-10">

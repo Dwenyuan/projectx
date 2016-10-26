@@ -1,6 +1,9 @@
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: {
-        app: './src/main.js'
+        app: './src/main.js',
+        echarts: ['echarts/lib/echarts','echarts/lib/chart/bar','echarts/lib/component/tooltip','echarts/lib/component/title']
     },
     output: {
         path: './build',
@@ -20,6 +23,9 @@ module.exports = {
             { test: /\.css$/, loader: 'style-loader!css-loader' }
         ]
     },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin('echarts', '[name].bundle.js')
+    ],
     devtool: '#source-map',
     resolve: {
         alias: {

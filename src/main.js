@@ -6,6 +6,7 @@ import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
 
 import './styles.css'
+import './asset/bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.debug = process.env.NODE_ENV !== 'production'
 sync(store, router)

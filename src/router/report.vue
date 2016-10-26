@@ -1,17 +1,10 @@
 <template>
     <div class="row">
         <div class="col-md-2">
-            <div class="row">
-                <div class="col-sm-12">
+            <div class="row" v-for="item in getTasks">
+                <div class="col-xs-12" @click="activeTask(item)">
                     <div class="panel-body">
-                        <a href="javascript:void(0)" class="btn btn-default btn-block">场景1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">场景2</div>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-block">{{item.name}}</a>
                     </div>
                 </div>
             </div>
@@ -56,9 +49,21 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <div class="panel-heading">报告</div>
                             <div class="panel-body">
+                                <div class="col-lg-3">
+                                    <chart></chart>
+                                </div>
+                                <!-- <div class="col-lg-3">
+                                    <chart></chart>
+                                </div>
+                                <div class="col-lg-3">
+                                    <chart></chart>
+                                </div>
+                                <div class="col-lg-3">
+                                    <chart></chart>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -68,10 +73,23 @@
     </div>
 </template>
 <script>
+import chart from './charts.vue'
+import {
+    mapGetters,
+    mapActions
+} from 'vuex'
 export default {
     props: [],
     ready() {
 
+    },
+    computed: mapGetters([
+        'getTasks',
+        'getActiveTask',
+        'getAgents'
+    ]),
+    components: {
+        chart
     },
     data() {
         return {

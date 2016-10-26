@@ -9,6 +9,7 @@
 import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
 import scriptManager from './components/script-manager.vue'
+import chart from './router/charts.vue'
 import {
     mapGetters,
     mapActions
@@ -27,6 +28,7 @@ export default {
         'getScripts'
     ]),
     components: {
+        chart,
         pageHeader,
         scriptView,
         scriptManager

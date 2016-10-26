@@ -3,7 +3,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: './src/main.js'
+        app: './src/main.js',
+        echarts:['echarts/lib/echarts','echarts/lib/chart/line','echarts/lib/chart/bar','echarts/lib/component/tooltip','echarts/lib/component/title']
     },
     output: {
         path: './build',
@@ -34,6 +35,7 @@ module.exports = {
                 warnings: false
             }
         }),
+        new webpack.optimize.CommonsChunkPlugin('echarts','[name].bundle.js'),
         new ExtractTextPlugin('[name].min.css', {
             allChunks: true
         })
