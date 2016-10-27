@@ -4,7 +4,7 @@
             <h4>标题</h4>
         </div>
         <div class="panel-body">
-            <div @resize="rechart" ref="chart" id="mychart" class="chartsTest" style="min-width:400px;min-height:400px"></div>
+            <div @resize="rechart" ref="chart" id="mychart" class="chartsTest" style="min-height:400px"></div>
         </div>
     </div>
 </template>
