@@ -10,13 +10,14 @@ import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
 import scriptManager from './components/script-manager.vue'
 import chart from './router/charts.vue'
+import logView from './components/log-view.vue'
 import {
     mapGetters,
     mapActions
 } from 'vuex'
 export default {
     replace: false,
-    ready() {
+    mounted() {
         console.log(this.logoimg)
     },
     data() {
@@ -29,6 +30,7 @@ export default {
     ]),
     components: {
         chart,
+        logView,
         pageHeader,
         scriptView,
         scriptManager

@@ -40,6 +40,10 @@ module.exports = {
             allChunks: true
         })
     ],
+    babel:{
+        presets:['es2015'],
+        plugins:["transform-runtime", "transform-object-rest-spread"]
+    },
     vue: {
         loaders: {
             css: ExtractTextPlugin.extract('css')

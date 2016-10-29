@@ -76,7 +76,7 @@ import {
 } from 'vuex'
 export default {
     props: [],
-    ready() {
+    mounted() {
 
     },
     computed: mapGetters([

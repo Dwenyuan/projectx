@@ -5,6 +5,7 @@ import tasks from '../data/task-data.js'
 import scripts from '../data/run-script-data.js'
 import args from '../data/arg-data.js'
 import agents from '../data/agents-data.js'
+import logs from '../data/log-data.js'
 Vue.use(Vuex)
 
 const state = {
@@ -16,6 +17,8 @@ const state = {
 
     agents,
     activeAgent: {},
+
+    logs:logs,
 
     scripts, //测试脚本数据
     activeScript: {} //临时脚本，点击脚本列表后激活的脚本

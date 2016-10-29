@@ -45,7 +45,7 @@
 <script>
     export default {
         replace: false,
-        ready() {
+        mounted() {
             console.log(this.logoimg)
         },
         data() {

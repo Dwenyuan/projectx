@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div  onresize="run()" onclick="add()" style="width: 400px;height: 400px;background: red;opacity: .5"></div>
+	<script type="text/javascript">
+		function run(){
+			console.log('resize')
+		}
+		function add(){
+			window.event.target.style.width = '900px'
+		}
+	</script>
+</body>
+</html>

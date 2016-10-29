@@ -26,6 +26,10 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin('echarts', '[name].bundle.js')
     ],
+    babel:{
+        presets:['es2015'],
+        plugins:["transform-runtime", "transform-object-rest-spread"]
+    },
     devtool: '#source-map',
     resolve: {
         alias: {

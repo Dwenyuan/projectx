@@ -11,3 +11,5 @@ export const getArgFile = state => state.args
 export const getActiveArg = state => state.activeArg
 
 export const getAgents = state => state.agents
+
+export const getLogs = state => state.logs
