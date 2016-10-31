@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as getters from '../vuex/getters'
 import tasks from '../data/task-data.js'
+import taskRsult from '../data/task-result.js'
 import scripts from '../data/run-script-data.js'
 import args from '../data/arg-data.js'
 import agents from '../data/agents-data.js'
@@ -11,6 +12,9 @@ Vue.use(Vuex)
 const state = {
     tasks,
     activeTask: {},
+
+    taskRsult,
+    activeTaskRsult:{},
 
     args,
     activeArg: {},

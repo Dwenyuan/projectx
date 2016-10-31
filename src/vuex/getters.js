@@ -4,6 +4,8 @@ export const getActiveScript = state => state.activeScript //获取当前脚本
 
 export const getTasks = state => state.tasks //获取的所有任务
 
+export const getTaskResult = state => state.taskRsult
+
 export const getActiveTask = state => state.activeTask //获取当前任务
 
 export const getArgFile = state => state.args

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-2">
-            <div class="row" v-for="item in getTasks">
+            <div class="row" v-for="item in getTaskResult.tasks">
                 <div class="col-xs-12" @click="activeTask(item)">
                     <div class="panel-body">
                         <a href="javascript:void(0)" class="btn btn-primary btn-block">{{item.name}}</a>
@@ -55,15 +55,6 @@
                                 <div class="col-lg-3">
                                     <chart></chart>
                                 </div>
-                                <!-- <div class="col-lg-3">
-                                    <chart></chart>
-                                </div>
-                                <div class="col-lg-3">
-                                    <chart></chart>
-                                </div>
-                                <div class="col-lg-3">
-                                    <chart></chart>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -85,6 +76,7 @@ export default {
     },
     computed: mapGetters([
         'getTasks',
+        'getTaskResult',
         'getActiveTask',
         'getAgents'
     ]),

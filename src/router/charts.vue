@@ -4,7 +4,7 @@
             <h4>标题</h4>
         </div>
         <div class="panel-body">
-            <div @resize="rechart" ref="chart" id="mychart" class="chartsTest" style="min-height:400px"></div>
+            <div ref="chart" id="mychart" class="chartsTest" style="min-height:400px"></div>
         </div>
     </div>
 </template>
@@ -51,10 +51,6 @@ export default {
             }
         },
         methods: {
-            rechart() {
-            	console.log('div resize')
-                // this.chart.resize()
-            }
         }
 }
 </script>
