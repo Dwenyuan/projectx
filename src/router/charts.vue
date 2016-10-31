@@ -40,6 +40,9 @@ export default {
                         option: {}
                     }]
                 })
+                window.onresize = ()=>{
+                    this.chart.resize()
+                }
             })
         },
         data() {
