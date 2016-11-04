@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import scriptView from './script-view.vue'
 import chart from './charts.vue'
+import summaryChart from './summary-chart.vue'
 import logView from '../components/log-view.vue'
 import scene from './scene.vue'
 import report from './report.vue'
@@ -12,7 +13,7 @@ const routes = [
     { path: '/script', component: scriptView },
     { path: '/scene', component: scene },
     { path: '/report', component: report },
-    { path: '/test', component: logView },
+    { path: '/test', component: summaryChart },
     { path: '/', component: scriptView }
 ]
 

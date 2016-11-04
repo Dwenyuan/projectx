@@ -14,7 +14,7 @@ const state = {
     activeTask: {},
 
     taskRsult,
-    activeTaskRsult:{},
+    activeTaskRsult: {},
 
     args,
     activeArg: {},
@@ -22,7 +22,7 @@ const state = {
     agents,
     activeAgent: {},
 
-    logs:logs,
+    logs: logs,
 
     scripts, //测试脚本数据
     activeScript: {} //临时脚本，点击脚本列表后激活的脚本
