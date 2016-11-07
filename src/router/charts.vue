@@ -1,10 +1,10 @@
 <template>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>标题</h4>
+            <h6 class="panel-title">标题</h6>
         </div>
         <div class="panel-body">
-            <div ref="chart" id="mychart" class="chartsTest" style="min-height:400px"></div>
+            <div ref="chart" id="mychart" class="chartsTest" style="min-height:200px"></div>
         </div>
     </div>
 </template>
@@ -18,26 +18,37 @@ export default {
             this.$nextTick(() => {
                 this.chart = echarts.init(this.$refs.chart)
                 this.chart.setOption({
-                    baseOption: {
-                        title: {
-                            text: 'ECharts 入门示例'
-                        },
-                        tooltip: {},
-                        xAxis: {
-                            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-                        },
-                        yAxis: {},
-                        series: [{
-                            name: '销量',
-                            type: 'line',
-                            data: [5, 20, 36, 10, 10, 20]
-                        }]
+                    legend: {
+                        show: true,
                     },
-                    media: [{
-                        query: {
-                            minAspectRatio: 1
-                        },
-                        option: {}
+                    xAxis: {
+                        data: ["任务", "状态", "成功数", "失败数", "运行中", "停止", "失败百分比", "速率"]
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '销量',
+                        type: 'bar',
+                        data: [50]
+                    }, {
+                        name: '销量',
+                        type: 'bar',
+                        data: [200]
+                    }, {
+                        name: '销量',
+                        type: 'bar',
+                        data: [100]
+                    }, {
+                        name: '销量',
+                        type: 'bar',
+                        data: [50]
+                    }, {
+                        name: '销量',
+                        type: 'bar',
+                        data: [50]
+                    }, {
+                        name: '销量',
+                        type: 'bar',
+                        data: [50]
                     }]
                 })
                 window.onresize = ()=>{

@@ -10,7 +10,7 @@ import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
 import scriptManager from './components/script-manager.vue'
 import chart from './router/charts.vue'
-import summaryChart from './router/summary-chart.vue'
+import summaryChart from './router/summary-task.vue'
 import logView from './components/log-view.vue'
 import {
     mapGetters,

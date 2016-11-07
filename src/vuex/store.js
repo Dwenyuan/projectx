@@ -15,6 +15,7 @@ const state = {
 
     taskRsult,
     activeTaskRsult: {},
+    activeTaskLines: {},
 
     args,
     activeArg: {},
