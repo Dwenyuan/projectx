@@ -12,7 +12,7 @@
                 <th>速率</th>
             </thead>
             <tbody>
-                <tr v-for="item in getTaskResult.tasks">
+                <tr v-for="(item,key) in getTaskResult.tasks" @click="activeTask(key)" :class="{info:activeIndex === key}">
                     <td>{{item.name}}</td>
                     <td>{{item.state}}</td>
                     <td>{{item.lines[0].total}}</td>
@@ -39,6 +39,7 @@ export default {
     ]),
     data() {
         return {
+            activeIndex: 0,
             chart: {}
         }
     },
@@ -50,6 +51,10 @@ export default {
             }
             let result = (line[1].total / (line[0].total + line[1].total)) * 100
             return `${result.toFixed(2)}%`
+        },
+        // 选中当前任务
+        activeTask(index) {
+            this.activeIndex = index
         }
     }
 }
