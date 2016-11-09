@@ -2,17 +2,19 @@
     <div class="panel-body">
         <table class="table table-striped table-bordered table-hover table-condensed">
             <thead>
-                <th>任务</th>
-                <th>状态</th>
-                <th>成功数</th>
-                <th>失败数</th>
-                <th>运行中</th>
-                <th>停止</th>
-                <th>失败百分比</th>
-                <th>速率</th>
+                <tr>
+                    <th>任务</th>
+                    <th>状态</th>
+                    <th>成功数</th>
+                    <th>失败数</th>
+                    <th>运行中</th>
+                    <th>停止</th>
+                    <th>失败百分比</th>
+                    <th>速率</th>
+                </tr>
             </thead>
             <tbody>
-                <tr v-for="(item,key) in getTaskResult.tasks" @click="activeTask(key)" :class="{info:activeIndex === key}">
+                <tr v-for="(item,key) in getTaskResult.tasks" @click="activeTask(item,key)" :class="{info:activeIndex === key}">
                     <td>{{item.name}}</td>
                     <td>{{item.state}}</td>
                     <td>{{item.lines[0].total}}</td>
@@ -44,6 +46,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions([
+            'activeTaskResult'
+        ]),
         // 计算失败百分比
         caclPercent(line) {
             if (!(line[0].total + line[1].total)) {
@@ -53,8 +58,9 @@ export default {
             return `${result.toFixed(2)}%`
         },
         // 选中当前任务
-        activeTask(index) {
+        activeTask(item, index) {
             this.activeIndex = index
+            this.activeTaskResult(item)
         }
     }
 }

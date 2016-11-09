@@ -7,8 +7,8 @@
                         <summary-task></summary-task>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-md-2" v-for="item in getActiveTaskRsult.lines">
+                    <!-- <div class="row">
+                        <div class="col-md-2" v-for="item in getActiveTaskResult.lines">
                             <div class="panel-body well">
                                 <div class="col-md-12">成功数</div>
                                 <div class="col-md-12">0</div>
@@ -32,7 +32,7 @@
                                 <div class="col-md-12">1ms</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <div class="col-lg-12">
                         <div class="panel-body">
@@ -65,7 +65,7 @@ export default {
     computed: mapGetters([
         'getTasks',
         'getTaskResult',
-        'getActiveTaskRsult',
+        'getActiveTaskResult',
         'getActiveTask',
         'getAgents'
     ]),

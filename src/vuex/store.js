@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as getters from '../vuex/getters'
+import * as actions from './actions.js'
 import tasks from '../data/task-data.js'
 import taskRsult from '../data/task-result.js'
 import scripts from '../data/run-script-data.js'
@@ -14,7 +15,7 @@ const state = {
     activeTask: {},
 
     taskRsult,
-    activeTaskRsult: {},
+    activeTaskResult: {},
     activeTaskLines: {},
 
     args,
@@ -35,12 +36,10 @@ const mutations = {
     },
     activeTask(state, { task }) {
         state.activeTask = task
+    },
+    activeTaskResult(state, { taskResult }) {
+        state.activeTaskResult = taskResult
     }
-}
-
-const actions = {
-    activeScript: ({ commit }, script) => commit('activeScript', { script }),
-    activeTask: ({ commit }, task) => commit('activeTask', { task })
 }
 
 export default new Vuex.Store({

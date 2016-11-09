@@ -4,7 +4,7 @@
             <div class="row" v-for="item in getTasks">
                 <div class="col-xs-12" @click="activeTask(item)">
                     <div class="panel-body">
-                        <a href="javascript:void(0)" class="btn btn-primary btn-block">{{item.name}}</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-block info">{{item.name}}</a>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                                 <div class="">{{getActiveTask.script?getActiveTask.script.name:''}}</div>
                             </div>
                             <div class="col-md-4">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-sm">增加</a>
+                                <a href="javascript:void(0)" class="btn pull-right btn-primary btn-sm">增加</a>
                             </div>
                         </div>
                     </div>

@@ -33,7 +33,7 @@ let result = {
             { "name": "TCP在线数", "type": 14, "max": 0, "min": 0, "ave": 0.0, "total": 0, "value": 0, "points": [{ "x": 2, "y": 0.0 }] }
         ]
     },{
-        "name": "Total",
+        "name": "aaaaaaaaa",
         "state": 4,
         "lines": [
             { "name": "成功数", "type": 1, "max": 0, "min": 0, "ave": 0.0, "total": 0, "value": 0, "points": [{ "x": 2, "y": 0.0 }] },

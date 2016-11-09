@@ -23,7 +23,7 @@ export const getAgents = state => state.agents
 export const getTaskResult = state => state.taskRsult
 
 // 获取选中结果
-export const getActiveTaskRsult = state => state.activeTaskRsult
+export const getActiveTaskResult = state => state.activeTaskResult
 
 // 获取选中的图表数据项
 export const getActiveTaskLines = state => state.activeTaskLines
