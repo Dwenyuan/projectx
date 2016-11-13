@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import * as getters from '../vuex/getters'
 import * as actions from './actions.js'
 import tasks from '../data/task-data.js'
-import taskRsult from '../data/task-result.js'
+import taskResult from '../data/task-result.js'
 import scripts from '../data/run-script-data.js'
 import args from '../data/arg-data.js'
 import agents from '../data/agents-data.js'
@@ -14,8 +14,8 @@ const state = {
     tasks,
     activeTask: {},
 
-    taskRsult,
-    activeTaskResult: {},
+    activeTaskResult: taskResult.tasks[0],
+    taskResult,
     activeTaskLines: {},
 
     args,
@@ -24,10 +24,10 @@ const state = {
     agents,
     activeAgent: {},
 
-    logs: logs,
+    logs,
 
     scripts, //测试脚本数据
-    activeScript: {} //临时脚本，点击脚本列表后激活的脚本
+    activeScript: {} //临时脚本，点击脚列表后激活的脚本
 }
 
 const mutations = {

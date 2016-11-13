@@ -11,8 +11,7 @@
                     <th>最后值</th>
                 </tr>
             </thead>
-            <!-- <tbody> -->
-            <transition-group tag="tbody" name="bounce">
+            <tbody>
                 <tr v-for="item in getActiveTaskResult.lines" :key="item.name">
                     <td>{{item.name}}</td>
                     <td>{{item.total}}</td>
@@ -21,8 +20,7 @@
                     <td>{{item.ave}}</td>
                     <td>{{item.value}}</td>
                 </tr>
-            </transition-group>
-            <!-- </tbody> -->
+            </tbody>
         </table>
     </div>
 </template>
@@ -40,35 +38,4 @@ export default {
 }
 </script>
 <style type="text/css">
-.bounce-enter-active {
-    animation: bounce-in .5s;
-}
-
-.bounce-leave-active {
-    animation: bounce-out .5s;
-}
-
-@keyframes bounce-in {
-    0% {
-        transform: rotate(180deg);
-    }
-    50% {
-        transform: rotate(90deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes bounce-out {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(0);
-    }
-}
 </style>

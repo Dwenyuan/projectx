@@ -20,7 +20,7 @@ export const getActiveArg = state => state.activeArg
 export const getAgents = state => state.agents
 
 // 获取任务正在执行的时返回的数据
-export const getTaskResult = state => state.taskRsult
+export const getTaskResult = state => state.taskResult
 
 // 获取选中结果
 export const getActiveTaskResult = state => state.activeTaskResult
@@ -28,8 +28,7 @@ export const getActiveTaskResult = state => state.activeTaskResult
 // 获取选中的图表数据项
 export const getActiveTaskLines = state => state.activeTaskLines
 
-export const getChartData = state => state.taskRsult
-
+export const getChartData = state => state.taskResult
 
 // 获取日志
 export const getLogs = state => state.logs
