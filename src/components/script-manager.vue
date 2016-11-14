@@ -6,10 +6,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">上传脚本</h4>
                 </div>
                 <div class="modal-body">
-                    ...
+                   <form action="uploadscript" method="post" formenctype="multipart/form-data">
+                       <input type="file" class="btn" multiple="true">
+                   </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -21,7 +23,9 @@
 </template>
 <script type="text/javascript">
 export default {
-
+    mounted() {
+        
+    }
 }
 </script>
 <style type="text/css"></style>

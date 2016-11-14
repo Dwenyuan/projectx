@@ -1,13 +1,25 @@
 // 任务运行状态 数据结构测试
+// const createTestPoint = (num) => {
+//     let result = []
+//     for (var i = num - 1; i >= 0; i--) {
+//         result.push({
+//             x: i,
+//             y: Math.random() * 100
+//         })
+//     }
+//     return result
+// }
 const createTestPoint = (num) => {
-    let result = []
+    let x = []
+    let y = []
     for (var i = num - 1; i >= 0; i--) {
-        result.push({
-            x: i,
-            y: Math.random() * 100
-        })
+        x.push(i)
+        y.push(Math.random() * 100)
     }
-    return result
+    return {
+        x,
+        y
+    }
 }
 let result = {
     "start": 1477929731803,

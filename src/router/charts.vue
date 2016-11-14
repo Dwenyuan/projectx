@@ -54,13 +54,13 @@ export default {
         },
         getXAxis() {
             let result = []
-            this.line.points.map((value) => result.push(value.x))
-            return result
+            // this.line.points.map((value) => result.push(value.x))
+            return this.line.points.x
         },
         getYAxis() {
             let result = []
-            this.line.points.map((value) => result.push(value.y))
-            return result
+            // this.line.points.map((value) => result.push(value.y))
+            return this.line.points.y
         },
         getOption() {
             return {
