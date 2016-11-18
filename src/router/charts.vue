@@ -5,15 +5,15 @@
                 <h6 class="panel-title">
                     <span>{{getActiveTaskResult.name}}-{{line.name}}</span>
                     <button ref="popover" class="btn btn-xs btn-default pull-right">
-                        Popover on bottom
+                        Popover on bottom{{checked}}
                     </button>
                 </h6>
             </div>
-            <div class="test-block">
+            <div class="param-block">
                 <div class="row" v-for="n in getRowByLines">
-                    <div class="btn-group btn-group-justified" data-toggle="buttons">
-                        <label href="javascript:;" class="col-xs-3 btn btn-info" v-for="item in getOneLineItems(n)">
-                            <input type="checkbox">{{item.name}}</label>
+                    <div class="btn-group btn-group-justified">
+                        <label class="col-xs-3 btn btn-info" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">
+                            <input type="checkbox" autocomplete="off" v-model="checked" :value="item">{{item.name}}</label>
                     </div>
                 </div>
             </div>
@@ -54,12 +54,12 @@ export default {
         },
         getXAxis() {
             let result = []
-            // this.line.points.map((value) => result.push(value.x))
+                // this.line.points.map((value) => result.push(value.x))
             return this.line.points.x
         },
         getYAxis() {
             let result = []
-            // this.line.points.map((value) => result.push(value.y))
+                // this.line.points.map((value) => result.push(value.y))
             return this.line.points.y
         },
         getOption() {
@@ -79,18 +79,22 @@ export default {
             }
         }
     },
-    watch:{
-        getOption(newval){
+    watch: {
+        getOption(newval) {
             this.chart.setOption(this.getOption)
             this.chart.resize()
         }
     },
     data() {
         return {
-            chart: {}
+            chart: {},
+            checked: []
         }
     },
     methods: {
+        isActive(item){ //判断当前俺就是否处于激活状态
+            return this.checked.some(value=>value.name === item.name)
+        },
         getOneLineItems(index) { //获取每一行的l复选 选项
             let start = (index - 1) * 4
             let end = start + 4
@@ -100,8 +104,12 @@ export default {
 }
 </script>
 <style>
-.test-block {
-    opacity: .3;
+input[type="checkbox"] {
+    display: none;
+}
+
+.param-block {
+    /*opacity: .3;/*/
     height: 100%;
     width: 100%;
     z-index: 1041;
