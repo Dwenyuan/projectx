@@ -1,24 +1,24 @@
 <template>
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h6 class="panel-title">
+    <!-- <div class="row"> -->
+    <div class="panel panel-default" @click="activeChart(line)" :class="{'active-chart':isActiveChart}">
+        <div class="panel-heading">
+            <h6 class="panel-title">
                     <span>{{getActiveTaskResult.name}}-{{line.name}}</span>
-                    <button ref="popover" class="btn btn-xs btn-default pull-right" @click="setOptionShow=!setOptionShow">Popover on bottom</button>
+                    <button ref="popover" class="btn btn-xs btn-default pull-right" @click.stop="setChartOptionShow">Popover on bottom</button>
                 </h6>
-            </div>
-            <div class="param-block" v-show="setOptionShow">
-                <div class="row" v-for="n in getRowByLines">
-                    <div class="btn-group btn-group-justified">
-                        <label class="col-xs-3 btn btn-warning" @click="triggerResult(item)" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">{{item.name}}</label>
-                    </div>
+        </div>
+        <div class="param-block" v-show="optionShow">
+            <div class="row" v-for="n in getRowByLines">
+                <div class="btn-group btn-group-justified">
+                    <label class="col-xs-3 btn btn-warning" @click.stop="triggerResult(item)" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">{{item.name}}</label>
                 </div>
             </div>
-            <div class="panel-body">
-                <div ref="chart" id="mychart" class="chartsTest" style="min-height:200px"></div>
-            </div>
+        </div>
+        <div class="panel-body">
+            <div ref="chart" id="mychart" class="chartsTest" style="min-height:200px"></div>
         </div>
     </div>
+    <!-- </div> -->
 </template>
 <script>
 import echarts from 'echarts/lib/echarts'
@@ -52,6 +52,18 @@ export default {
             'getCharts',
             'getActiveChart',
         ]),
+        // chart(){
+        //     return this.line.chart
+        // },
+        checked() {
+            return this.line.checked
+        },
+        optionShow() {
+            return this.line.optionShow
+        },
+        isActiveChart() {
+            return this.getActiveChart === this.line
+        },
         // 获取复选框总共有几行
         getRowByLines() {
             return this.getActiveTaskResult.lines.length % 4 === 0 ? this.getActiveTaskResult.lines.length / 4 : this.getActiveTaskResult.lines.length / 4 + 1
@@ -96,6 +108,14 @@ export default {
         }
     },
     methods: {
+        ...mapActions([
+            'setOptionShow',
+            'activeChart'
+        ]),
+        setChartOptionShow(){
+            this.activeChart(this.line)
+            this.setOptionShow()
+        },
         triggerResult(item) {
             this.checked.exist(item.name) ? this.checked.remove(item.name) : this.checked.push(item.name)
         },
@@ -125,6 +145,10 @@ export default {
 <style>
 input[type="checkbox"] {
     display: none;
+}
+
+.active-chart {
+    box-shadow: 2px 2px 2px rgba(55, 55, 55, .15);
 }
 
 .param-block {

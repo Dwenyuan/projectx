@@ -28,7 +28,7 @@ const state = {
     logs,
 
     charts,
-    activeChart:{},
+    activeChart: {},
 
     scripts, //测试脚本数据
     activeScript: {} //临时脚本，点击脚列表后激活的脚本
@@ -44,8 +44,17 @@ const mutations = {
     activeTaskResult(state, { taskResult }) {
         state.activeTaskResult = taskResult
     },
-    activeChart(state,{chart}){
+    activeChart(state, { chart }) {
         state.activeChart = chart
+    },
+    addchart(state) {
+        state.charts.push({
+            optionShow: false,
+            checked: []
+        })
+    },
+    setOptionShow(state) {
+        state.activeChart.optionShow = !state.activeChart.optionShow
     }
 }
 

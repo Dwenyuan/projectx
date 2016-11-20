@@ -1,10 +1,11 @@
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: {
         app: './src/main.js',
-        echarts:['echarts/lib/echarts','echarts/lib/chart/line','echarts/lib/chart/bar','echarts/lib/component/tooltip','echarts/lib/component/title']
+        echarts: ['echarts/lib/echarts', 'echarts/lib/chart/line', 'echarts/lib/chart/bar', 'echarts/lib/component/tooltip', 'echarts/lib/component/title']
     },
     output: {
         path: './build',
@@ -36,14 +37,18 @@ module.exports = {
                 warnings: false
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('echarts','[name].bundle.js'),
+        new CopyWebpackPlugin([{
+            from: 'src/asset/bootstrap/dist/css/bootstrap.min.css',
+            to: 'bootstrap.min.css'
+        }]),
+        new webpack.optimize.CommonsChunkPlugin('echarts', '[name].bundle.js'),
         new ExtractTextPlugin('[name].min.css', {
             allChunks: true
         })
     ],
-    babel:{
-        presets:['es2015'],
-        plugins:["transform-runtime", "transform-object-rest-spread"]
+    babel: {
+        presets: ['es2015'],
+        plugins: ["transform-runtime", "transform-object-rest-spread"]
     },
     vue: {
         loaders: {

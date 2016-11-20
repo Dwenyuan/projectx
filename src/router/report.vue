@@ -12,6 +12,9 @@
                             <div class="col-lg-3" v-for="line in getCharts">
                                 <chart :line="line"></chart>
                             </div>
+                            <div class="col-lg-3">
+                                <a href="javascript:;" @click="addchart" class="btn btn-default btn-block"><span class="glyphicon glyphicon-plus"></span></a>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -42,6 +45,9 @@ export default {
         'getActiveTask',
         'getCharts',
         'getAgents'
+    ]),
+    methods: mapActions([
+        'addchart'
     ]),
     components: {
         chart,

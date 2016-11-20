@@ -9,3 +9,7 @@ export const activeTaskResult = ({ commit }, taskResult) => commit('activeTaskRe
 
 // 选中图表
 export const activeChart = ({ commit }, chart) => commit('activeChart', { chart })
+
+export const setOptionShow = ({ commit }) => commit('setOptionShow')
+
+export const addchart = ({ commit }) => commit('addchart')
