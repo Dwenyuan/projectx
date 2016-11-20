@@ -9,7 +9,7 @@
                     <hr>
                     <div class="col-lg-12">
                         <div class="panel-body">
-                            <div class="col-lg-3" v-for="line in getActiveTaskResult.lines.slice(1,5)">
+                            <div class="col-lg-3" v-for="line in getCharts">
                                 <chart :line="line"></chart>
                             </div>
                         </div>
@@ -40,6 +40,7 @@ export default {
         'getTaskResult',
         'getActiveTaskResult',
         'getActiveTask',
+        'getCharts',
         'getAgents'
     ]),
     components: {

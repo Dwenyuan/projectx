@@ -4,16 +4,13 @@
             <div class="panel-heading">
                 <h6 class="panel-title">
                     <span>{{getActiveTaskResult.name}}-{{line.name}}</span>
-                    <button ref="popover" class="btn btn-xs btn-default pull-right">
-                        Popover on bottom{{checked}}
-                    </button>
+                    <button ref="popover" class="btn btn-xs btn-default pull-right" @click="setOptionShow=!setOptionShow">Popover on bottom</button>
                 </h6>
             </div>
-            <div class="param-block">
+            <div class="param-block" v-show="setOptionShow">
                 <div class="row" v-for="n in getRowByLines">
                     <div class="btn-group btn-group-justified">
-                        <label class="col-xs-3 btn btn-info" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">
-                            <input type="checkbox" autocomplete="off" v-model="checked" :value="item">{{item.name}}</label>
+                        <label class="col-xs-3 btn btn-warning" @click="triggerResult(item)" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">{{item.name}}</label>
                     </div>
                 </div>
             </div>
@@ -44,38 +41,51 @@ export default {
             }
         })
     },
+    data() {
+        return {
+            chart: {},
+        }
+    },
     computed: {
         ...mapGetters([
-            'getActiveTaskResult'
+            'getActiveTaskResult',
+            'getCharts',
+            'getActiveChart',
         ]),
         // 获取复选框总共有几行
         getRowByLines() {
             return this.getActiveTaskResult.lines.length % 4 === 0 ? this.getActiveTaskResult.lines.length / 4 : this.getActiveTaskResult.lines.length / 4 + 1
         },
-        getXAxis() {
-            let result = []
-                // this.line.points.map((value) => result.push(value.x))
-            return this.line.points.x
-        },
-        getYAxis() {
-            let result = []
-                // this.line.points.map((value) => result.push(value.y))
-            return this.line.points.y
-        },
         getOption() {
+            let series = []
+            let _this = this
+            let legend = []
+            let checkedline = []
+            checkedline = this.filterLines(this.checked)
+            checkedline.forEach(value => {
+                legend.push({
+                    name: value.name
+                });
+                series.push({
+                    name: value.name,
+                    type: 'line',
+                    data: _this.getYAxis(value)
+                })
+            })
             return {
+                tooltip: {
+                    show: true,
+                    trigger: 'axis'
+                },
                 legend: {
                     show: true,
+                    data: legend
                 },
                 xAxis: {
-                    data: this.getXAxis
+                    data: checkedline[0] ? this.getXAxis(checkedline[0]) : []
                 },
                 yAxis: {},
-                series: [{
-                    name: '销量',
-                    type: 'line',
-                    data: this.getYAxis
-                }]
+                series: series
             }
         }
     },
@@ -85,21 +95,30 @@ export default {
             this.chart.resize()
         }
     },
-    data() {
-        return {
-            chart: {},
-            checked: []
-        }
-    },
     methods: {
-        isActive(item){ //判断当前俺就是否处于激活状态
-            return this.checked.some(value=>value.name === item.name)
+        triggerResult(item) {
+            this.checked.exist(item.name) ? this.checked.remove(item.name) : this.checked.push(item.name)
+        },
+        getXAxis(line) {
+            let result = []
+            return line.points.x
+        },
+        getYAxis(line) {
+            let result = []
+            return line.points.y
+        },
+        isActive(item) { //判断当前俺就是否处于激活状态
+            return this.checked.exist(item.name)
         },
         getOneLineItems(index) { //获取每一行的l复选 选项
             let start = (index - 1) * 4
             let end = start + 4
             return this.getActiveTaskResult.lines.slice(start, end)
         },
+        // 从激活的task根据名字筛选出选中的lines
+        filterLines(selected) {
+            return this.getActiveTaskResult.lines.filter(value => selected.exist(value.name))
+        }
     }
 }
 </script>

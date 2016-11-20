@@ -32,3 +32,8 @@ export const getChartData = state => state.taskResult
 
 // 获取日志
 export const getLogs = state => state.logs
+
+// 当前显示多少个图表
+export const getCharts = state => state.charts
+
+export const getAcitveChart = state=>state.activeChart

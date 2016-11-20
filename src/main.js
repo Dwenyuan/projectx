@@ -2,6 +2,7 @@ import Vue from 'vue'
 import app from './app.vue'
 import router from './router/mainRouter'
 import store from './vuex/store'
+import util from './asset/util.js'
 import { sync } from 'vuex-router-sync'
 
 import './styles.css'
