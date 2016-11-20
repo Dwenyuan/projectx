@@ -53,6 +53,9 @@ const mutations = {
             checked: []
         })
     },
+    removeChart(state, { name }) {
+        state.charts.remove(name)
+    },
     setOptionShow(state) {
         state.activeChart.optionShow = !state.activeChart.optionShow
     }

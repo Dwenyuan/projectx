@@ -13,3 +13,5 @@ export const activeChart = ({ commit }, chart) => commit('activeChart', { chart 
 export const setOptionShow = ({ commit }) => commit('setOptionShow')
 
 export const addchart = ({ commit }) => commit('addchart')
+
+export const removeChart = ({ commit }, chart) => commit('removeChart', { chart })

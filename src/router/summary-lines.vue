@@ -1,5 +1,5 @@
 <template>
-    <div class="panel-body">
+    <div class="panel-body" style="max-height: 400px;overflow: auto;">
         <table class="table table-striped table-bordered table-hover table-condensed">
             <thead>
                 <tr>
@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in getActiveTaskResult.lines" :key="item.name">
+                <tr v-for="(item,key) in getActiveTaskResult.lines" :key="item.name" @click="select=key" :class="{info:key===select}">
                     <td>{{item.name}}</td>
                     <td>{{item.total}}</td>
                     <td>{{item.max}}</td>
@@ -31,6 +31,11 @@ import {
 } from 'vuex'
 export default {
     prop: [],
+    data() {
+        return {
+            select: 0
+        }
+    },
     computed: mapGetters([
         'getActiveTaskLines',
         'getActiveTaskResult'

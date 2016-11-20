@@ -4,13 +4,20 @@
         <div class="panel-heading">
             <h6 class="panel-title">
                     <span>{{getActiveTaskResult.name}}-{{line.name}}</span>
-                    <button ref="popover" class="btn btn-xs btn-default pull-right" @click.stop="setChartOptionShow">Popover on bottom</button>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-xs btn-danger" @click.stop="removeThisChart(line.name)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button ref="popover" class="btn btn-xs" @click.stop="setChartOptionShow">Popover on bottom</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
                 </h6>
         </div>
         <div class="param-block" v-show="optionShow">
             <div class="row" v-for="n in getRowByLines">
                 <div class="btn-group btn-group-justified">
-                    <label class="col-xs-3 btn btn-warning" @click.stop="triggerResult(item)" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">{{item.name}}</label>
+                    <label class="col-xs-3 btn btn-info" @click.stop="triggerResult(item)" :class="{active:isActive(item)}" v-for="(item,key) in getOneLineItems(n)">{{item.name}}</label>
                 </div>
             </div>
         </div>
@@ -110,11 +117,16 @@ export default {
     methods: {
         ...mapActions([
             'setOptionShow',
-            'activeChart'
+            'activeChart',
+            'removeChart'
         ]),
-        setChartOptionShow(){
+        setChartOptionShow() {
             this.activeChart(this.line)
             this.setOptionShow()
+        },
+        removeThisChart() {
+            this.activeChart(this.line)
+            this.removeChart(this.line)
         },
         triggerResult(item) {
             this.checked.exist(item.name) ? this.checked.remove(item.name) : this.checked.push(item.name)

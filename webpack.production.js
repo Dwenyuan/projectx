@@ -38,8 +38,8 @@ module.exports = {
             }
         }),
         new CopyWebpackPlugin([{
-            from: 'src/asset/bootstrap/dist/css/bootstrap.min.css',
-            to: 'bootstrap.min.css'
+            from: 'src/asset/bootstrap/dist',
+            to:'bootstrap'
         }]),
         new webpack.optimize.CommonsChunkPlugin('echarts', '[name].bundle.js'),
         new ExtractTextPlugin('[name].min.css', {
