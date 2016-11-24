@@ -65,6 +65,11 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="panel-body">
+                        <p class="bg-danger">当所有虚拟用户到达集结点</p>
+                        <p class="bg-danger">释放条件</p>
+                        <p class="bg-danger">释放条件</p>
+                    </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="startTime">
