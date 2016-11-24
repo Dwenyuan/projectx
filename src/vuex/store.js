@@ -12,6 +12,8 @@ import charts from '../data/charts.js'
 Vue.use(Vuex)
 
 const state = {
+    modelTypes: ["稳定速率", "递增", "递减", "波浪型", "振荡型", "波浪与振荡", "随机"], //可能的模型
+    rendezvous: ["禁用", "按照Controller设置启用", "按照scripter设置启用"], //可能的配置
     tasks,
     activeTask: {},
 
@@ -41,9 +43,18 @@ const mutations = {
     activeTask(state, { task }) {
         state.activeTask = task
     },
+    changeModelType(state, { modelType }) {
+        state.activeTask.model.modelType = modelType
+    },
+    changeRendezvous(state, { rendezvous }) {
+        state.activeTask.rendezvous.rendezvousEnable = rendezvous
+    },
     activeTaskResult(state, { taskResult }) {
         state.activeTaskResult = taskResult
     },
+
+
+
     activeChart(state, { chart }) {
         state.activeChart = chart
     },

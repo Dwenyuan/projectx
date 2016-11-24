@@ -1,10 +1,10 @@
 <template>
-    <div class="row">
+    <div>
         <div class="col-md-2">
             <div class="row" v-for="item in getTasks">
                 <div class="col-xs-12" @click="activeTask(item)">
                     <div class="panel-body">
-                        <a href="javascript:void(0)" class="btn btn-default btn-block info">{{item.name}}</a>
+                        <a href="javascript:void(0)" class="btn btn-warning btn-block info" :class="{active:getActiveTask===item}">{{item.name}}</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     </div>
 </template>
 <script>
-import modelSetting from '../components/modelSetting.vue'
+import modelSetting from '../components/model-setting.vue'
 import {
     mapGetters,
     mapActions

@@ -9,10 +9,19 @@ var getTasks = (num) => {
             script: {
                 id: i,
                 name: '测试' + i
+
             },
             arg: {
                 id: i,
                 name: 'args' + i
+            },
+            model: {
+                modelType: 1
+            },
+            rendezvous: {
+                rendezvousEnable: 0, //0表示禁用，1表示启用但按照controller配置，2表示启用按scripter配置
+                policy: 0,
+                policyUsers_Percent: 0,
             },
             agents
         })
