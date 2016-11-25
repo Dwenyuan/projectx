@@ -69,6 +69,8 @@
     </div>
 </template>
 <script>
+// CheckBox 样式
+import '../asset/icheck/skins/square/blue.css'
 import modelSetting from '../components/model-setting.vue'
 import {
     mapGetters,

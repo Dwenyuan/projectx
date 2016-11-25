@@ -7,9 +7,11 @@ export const getActiveScript = state => state.activeScript //获取当前脚本
 // 获取所有任务列表
 export const getTasks = state => state.tasks //获取的所有任务
 
-export const getModelTypes = state => state.modelTypes
+//获取所有可能的模型 枚举列表
+export const getModelTypesEnum = state => state.modelTypesEnum
 
-export const getRendezvous = state =>state.rendezvous
+// 获取集结点枚举列表
+export const getRendezvousEnum = state =>state.rendezvousEnum
 
 // 获取当前选中的任务
 export const getActiveTask = state => state.activeTask //获取当前任务
