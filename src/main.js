@@ -6,7 +6,7 @@ import util from './asset/util.js'
 import { sync } from 'vuex-router-sync'
 
 import './styles.css'
-// CheckBox ÑùÊ½
+// CheckBox æ ·å¼
 import './asset/icheck/skins/square/blue.css'
 // import './asset/bootstrap/dist/css/bootstrap.min.css'
 

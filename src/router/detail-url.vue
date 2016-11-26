@@ -126,7 +126,6 @@
     </div>
 </template>
 <script>
-require('../asset/blue.css')
 import {
     mapGetters,
     mapActions
