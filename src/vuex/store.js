@@ -9,7 +9,11 @@ import scripts from '../data/run-script-data.js'
 import args from '../data/arg-data.js'
 import agents from '../data/agents-data.js'
 import logs from '../data/log-data.js'
+
+import detailResultChange from '../data/user-detail.js'
+import detailResult from '../data/user-detail-change.js'
 import charts from '../data/charts.js'
+
 Vue.use(Vuex)
 
 const state = {
@@ -33,8 +37,17 @@ const state = {
     charts,
     activeChart: {},
 
+    detailResult,
+    detailResultChange,
+    activeDetailTask: {},
+    activeDetailFailTask: {},
+    activeDetailOver5: {},
+    activeDetailError: {},
+    activeDetailURL: {},
+    activeDetailFailURL: {},
+
     scripts, //测试脚本数据
-    activeScript: {} //临时脚本，点击脚列表后激活的脚本
+    activeScript: {} //临时脚本，点击脚本列表后激活的脚本
 }
 
 export default new Vuex.Store({

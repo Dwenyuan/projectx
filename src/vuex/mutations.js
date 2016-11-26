@@ -64,9 +64,10 @@ export const changeLoopTimes = (state, { loopTimes }) => state.activeTask.iterat
 
 
 
-
+//================ 任务结果详情相关
 export const activeTaskResult = (state, { taskResult }) => state.activeTaskResult = taskResult
 
+//=====图表 
 export const activeChart = (state, { chart }) => state.activeChart = chart
 
 export const addchart = (state) =>
@@ -78,3 +79,19 @@ export const addchart = (state) =>
 export const removeChart = (state, { name }) => state.charts.remove(name)
 
 export const setOptionShow = (state) => state.activeChart.optionShow = !state.activeChart.optionShow
+    //=====图表 
+
+export const activeDetailTask = (state, { detailTask }) => state.activeDetailTask = detailTask
+
+export const activeDetailFailTask = (state, { detailTask }) => state.activeDetailFailTask = detailTask
+
+export const activeDetailOver5 = (state, { detailTask }) => state.activeDetailOver5 = detailTask
+
+export const activeDetailError = (state, { detailTask }) => state.activeDetailError = detailTask
+
+export const activeDetailURL = (state, { detailTask }) => state.activeDetailURL = detailTask
+
+export const activeDetailFailURL = (state, { detailTask }) => state.activeDetailFailURL = detailTask
+
+export const changeTask = (state, { detailTask }) => state.detailResult = state.detailResultChange
+    //================ 任务结果详情相关

@@ -6,6 +6,8 @@ import util from './asset/util.js'
 import { sync } from 'vuex-router-sync'
 
 import './styles.css'
+// CheckBox ÑשÊ½
+import './asset/icheck/skins/square/blue.css'
 // import './asset/bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.debug = process.env.NODE_ENV !== 'production'

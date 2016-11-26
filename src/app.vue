@@ -16,6 +16,7 @@ import {
     mapGetters,
     mapActions
 } from 'vuex'
+
 export default {
     replace: false,
     mounted() {

@@ -16,11 +16,6 @@ export const getRendezvousEnum = state =>state.rendezvousEnum
 // 获取当前选中的任务
 export const getActiveTask = state => state.activeTask //获取当前任务
 
-
-
-
-
-
 // 获取所有的参数文件列表
 export const getArgFile = state => state.args
 
@@ -49,3 +44,6 @@ export const getCharts = state => state.charts
 
 // 获取选中的图表
 export const getActiveChart = state=>state.activeChart
+
+// 获取用户详情
+export const getDetailResult = state => state.detailResult

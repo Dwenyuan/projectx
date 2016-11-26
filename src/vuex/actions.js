@@ -72,3 +72,13 @@ export const addchart = ({ commit }) => commit('addchart')
 export const removeChart = ({ commit }, chart) => commit('removeChart', { chart })
 
 // ====================结果配置相关===============================================//
+
+// 用户详情选中任务   下面其实是一个函数简写 ({ commit }, detailTask)这个是一个function， commit('activeDetailTask', { detailTask })是执行代码
+//detailTask是参数，下面的commit是调用store的方法activeDetailTask，传入detailTask参数
+export const activeDetailTask = ({ commit }, detailTask) => commit('activeDetailTask', { detailTask })
+export const activeDetailFailTask = ({ commit }, detailTask) => commit('activeDetailFailTask', { detailTask })
+export const activeDetailOver5 = ({ commit }, detailTask) => commit('activeDetailOver5', { detailTask })
+export const activeDetailError = ({ commit }, detailTask) => commit('activeDetailError', { detailTask })
+export const activeDetailURL = ({ commit }, detailTask) => commit('activeDetailURL', { detailTask })
+export const activeDetailFailURL = ({ commit }, detailTask) => commit('activeDetailFailURL', { detailTask })
+export const changeTask = ({ commit }, detailTask) => commit('changeTask', { detailTask })

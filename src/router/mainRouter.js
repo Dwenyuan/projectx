@@ -6,6 +6,7 @@ import summaryChart from './summary-task.vue'
 import logView from '../components/log-view.vue'
 import scene from './scene.vue'
 import report from './report.vue'
+import detail from './detail.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ const routes = [
     { path: '/script', component: scriptView },
     { path: '/scene', component: scene },
     { path: '/report', component: report },
-    { path: '/test', component: summaryChart },
+    { path: '/test', component: detail },
     { path: '/', component: scriptView }
 ]
 
