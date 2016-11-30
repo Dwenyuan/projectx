@@ -15,6 +15,7 @@ module.exports = {
             { test: /\.vue$/, loader: 'vue' },
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.swf$/, loader: 'url?name=[name].[ext]' },
+            { test: /\.html$/, loader: 'html' },
             { test: /\.(png|jpg)$/, loader: 'url?limit=10000' },
             { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },

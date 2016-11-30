@@ -17,7 +17,7 @@
         <div class="param-block" v-show="optionShow">
             <div class="row" v-for="n in getRowByLines">
                 <div class="btn-group btn-group-justified">
-                    <label class="col-xs-3 btn btn-info" @click.stop="triggerResult(item)" v-for="(item,key) in getOneLineItems(n)">
+                    <label class="col-xs-3 btn btn-default" @click.stop="triggerResult(item)" v-for="(item,key) in getOneLineItems(n)">
                         <div class="icheckbox_square-blue" :class="{checked:isActive(item)}"></div>{{item.name}}</label>
                 </div>
             </div>

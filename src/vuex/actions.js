@@ -2,7 +2,13 @@
 // 选中脚本
 export const activeScript = ({ commit }, script) => commit('activeScript', { script })
 
-// 选中任务 配置任务
+// 切换任务配置的脚本 
+export const changeTaskScript = ({ commit }, script) => commit('changeTaskScript', { script })
+
+// 切换任务配置的参数文件
+export const changeTaskParam = ({ commit }, param) => commit('changeTaskParam', { param })
+  
+    // 选中任务 配置任务
 export const activeTask = ({ commit }, task) => commit('activeTask', { task })
 
 export const changeIsCaps = ({ commit }, isCaps) => commit('changeIsCaps', { isCaps })
@@ -56,7 +62,7 @@ export const changeStopTime = ({ commit }, stopTime) => commit('changeStopTime',
 export const changeOnlineIndex = ({ commit }, onlineIndex) => commit('changeOnlineIndex', { onlineIndex })
 
 export const changeLoopTimes = ({ commit }, loopTimes) => commit('changeLoopTimes', { loopTimes })
-// ====================任务配置相关===============================================//
+    // ====================任务配置相关===============================================//
 
 // ====================结果配置相关===============================================//
 // 选中任务执行结果
@@ -69,16 +75,24 @@ export const setOptionShow = ({ commit }) => commit('setOptionShow')
 
 export const addchart = ({ commit }) => commit('addchart')
 
-export const removeChart = ({ commit }, chart) => commit('removeChart', { chart })
+export const removeChart = ({ commit }, chart) => {
+    commit('removeChart', { chart })
+}
 
 // ====================结果配置相关===============================================//
 
 // 用户详情选中任务   下面其实是一个函数简写 ({ commit }, detailTask)这个是一个function， commit('activeDetailTask', { detailTask })是执行代码
 //detailTask是参数，下面的commit是调用store的方法activeDetailTask，传入detailTask参数
 export const activeDetailTask = ({ commit }, detailTask) => commit('activeDetailTask', { detailTask })
+
 export const activeDetailFailTask = ({ commit }, detailTask) => commit('activeDetailFailTask', { detailTask })
+
 export const activeDetailOver5 = ({ commit }, detailTask) => commit('activeDetailOver5', { detailTask })
+
 export const activeDetailError = ({ commit }, detailTask) => commit('activeDetailError', { detailTask })
+
 export const activeDetailURL = ({ commit }, detailTask) => commit('activeDetailURL', { detailTask })
+
 export const activeDetailFailURL = ({ commit }, detailTask) => commit('activeDetailFailURL', { detailTask })
+
 export const changeTask = ({ commit }, detailTask) => commit('changeTask', { detailTask })

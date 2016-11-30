@@ -18,6 +18,7 @@ module.exports = {
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.(png|jpg)$/, loader: 'file' },
             { test: /\.swf$/, loader: 'url?name=[name].[ext]' },
+            { test: /\.html$/, loader: 'html' },
             { test: /\.(png|jpg)$/, loader: 'url?limit=10000' },
             { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
@@ -39,7 +40,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin([{
             from: 'src/asset/bootstrap/dist',
-            to:'bootstrap'
+            to: 'bootstrap'
         }]),
         new webpack.optimize.CommonsChunkPlugin('echarts', '[name].bundle.js'),
         new ExtractTextPlugin('[name].min.css', {

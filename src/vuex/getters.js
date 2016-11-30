@@ -17,10 +17,10 @@ export const getRendezvousEnum = state =>state.rendezvousEnum
 export const getActiveTask = state => state.activeTask //获取当前任务
 
 // 获取所有的参数文件列表
-export const getArgFile = state => state.args
+export const getParamFile = state => state.params
 
 // 获取当前选中的参数选项
-export const getActiveArg = state => state.activeArg
+export const getActiveParam = state => state.activeParam
 
 // 获取该用户拥有的代理执行器
 export const getAgents = state => state.agents

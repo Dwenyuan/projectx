@@ -9,11 +9,10 @@ var getTasks = (num) => {
             script: {
                 id: i,
                 name: '测试' + i
-
             },
-            arg: {
+            param: {
                 id: i,
-                name: 'args' + i
+                name: 'params' + i
             },
             model: {
                 isCaps: 1, //是否每秒并发caps模型，还是每秒限定用户数模型 

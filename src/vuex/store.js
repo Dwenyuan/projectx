@@ -6,7 +6,7 @@ import * as mutations from './mutations.js'
 import tasks from '../data/task-data.js'
 import taskResult from '../data/task-result.js'
 import scripts from '../data/run-script-data.js'
-import args from '../data/arg-data.js'
+import params from '../data/arg-data.js'
 import agents from '../data/agents-data.js'
 import logs from '../data/log-data.js'
 
@@ -26,8 +26,8 @@ const state = {
     taskResult,
     activeTaskLines: {},
 
-    args,
-    activeArg: {},
+    params,
+    activeParam: {},
 
     agents,
     activeAgent: {},

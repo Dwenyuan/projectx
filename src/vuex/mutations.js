@@ -3,6 +3,9 @@ export const activeScript = (state, { script }) => state.activeScript = script
 
 export const activeTask = (state, { task }) => state.activeTask = task
 
+export const changeTaskScript = (state, { script }) => state.activeTask.script = script
+
+export const changeTaskParam = (state, { param }) => state.activeTask.param = param
 
 export const changeIsCaps = (state, { isCaps }) => state.activeTask.model.isCaps = isCaps
 
@@ -76,7 +79,9 @@ export const addchart = (state) =>
         checked: []
     })
 
-export const removeChart = (state, { name }) => state.charts.remove(name)
+export const removeChart = (state, { name }) => {
+    state.charts.remove(name)
+}
 
 export const setOptionShow = (state) => state.activeChart.optionShow = !state.activeChart.optionShow
     //=====图表 

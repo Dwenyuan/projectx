@@ -1,5 +1,5 @@
 // 参数测试数据
-let args = (num) => {
+let params = (num) => {
     let result = []
     for (let i = 0; i < num; i++) {
         result.push({
@@ -9,4 +9,4 @@ let args = (num) => {
     }
     return result
 }
-export default args(20)
+export default params(20)
