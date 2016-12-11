@@ -92,7 +92,8 @@ export default {
                     data: _this.getYAxis(value)
                 })
             })
-            return {
+
+            let option = {
                 tooltip: {
                     show: true,
                     trigger: 'axis'
@@ -107,11 +108,12 @@ export default {
                 yAxis: {},
                 series: series
             }
+            return option
         }
     },
     watch: {
         getOption(newval) {
-            this.chart.setOption(this.getOption)
+            this.chart.setOption(this.getOption, true)
             this.chart.resize()
         }
     },

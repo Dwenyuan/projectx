@@ -59,7 +59,7 @@
                     <div class="panel-heading">参数文件</div>
                     <div class="panel panel-body">
                         <div class="col-md-12">
-                            <div class="col-md-2" @click="activeArg(item)" v-for="item in getArgFile">
+                            <div class="col-md-2" @click="activeArg(item)" v-for="item in getParamFile">
                                 <div class="panel">
                                     <div class="panel-body well">
                                         <div class="col-md-12">{{item.name}}</div>
@@ -91,7 +91,7 @@ export default {
     computed: mapGetters([
         'getScripts',
         'getActiveScript',
-        'getArgFile'
+        'getParamFile'
     ]),
     methods: mapActions(['activeScript']),
     data() {
