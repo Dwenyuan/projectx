@@ -14,14 +14,33 @@
                     </div>
                 </h6>
         </div>
-        <div class="param-block" v-show="optionShow">
-            <div class="row" v-for="n in getRowByLines">
-                <div class="btn-group btn-group-justified">
-                    <label class="col-xs-3 btn btn-default" @click.stop="triggerResult(item)" v-for="(item,key) in getOneLineItems(n)">
-                        <div class="icheckbox_square-blue" :class="{checked:isActive(item)}"></div>{{item.name}}</label>
+        <div ref="modal-option" class="modal fade" @mousemove="movedialog" @mouseup="dialogMoveAble=false">
+            <div class="modal-dialog modal-drag-move" :style="{left:location.x+'px',top:location.y+'px'}">
+                <div class="modal-content">
+                    <div class="modal-header" @mousedown="dialogMoveAble=true">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="param-block">
+                            <div class="row" v-for="n in getRowByLines">
+                                <div class="btn-group btn-group-justified">
+                                    <label class="col-xs-3 btn btn-default" @click.stop="triggerResult(item)" v-for="(item,key) in getOneLineItems(n)">
+                                        <div class="icheckbox_square-blue" :class="{checked:isActive(item)}"></div>{{item.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
+        <!-- /.modal -->
         <div class="panel-body">
             <div ref="chart" id="mychart" class="chartsTest" style="min-height:200px"></div>
         </div>
@@ -33,6 +52,7 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import 'echarts/lib/component/dataZoom'
 import {
     mapGetters,
     mapActions
@@ -47,10 +67,20 @@ export default {
             window.onresize = () => {
                 this.chart.resize()
             }
+
+            // this.dialog = $(this.$refs['modal-option']).modal({
+            //     backdrop: 'static'
+            // })
         })
     },
     data() {
         return {
+            // dialog: {}
+            dialogMoveAble: false,
+            location: {
+                x: 50,
+                y: 50
+            },
             chart: {},
         }
     },
@@ -92,8 +122,12 @@ export default {
                     data: _this.getYAxis(value)
                 })
             })
-
-            let option = {
+            return {
+                // dataZoom: [{
+                //     id: 'dataZoomX',
+                //     type: 'slider',
+                //     xAxisIndex: [0]
+                // }],
                 tooltip: {
                     show: true,
                     trigger: 'axis'
@@ -108,7 +142,6 @@ export default {
                 yAxis: {},
                 series: series
             }
-            return option
         }
     },
     watch: {
@@ -125,7 +158,10 @@ export default {
         ]),
         setChartOptionShow() {
             this.activeChart(this.line)
-            this.setOptionShow()
+            $(this.$refs['modal-option']).modal({
+                    backdrop: 'static'
+                })
+                // this.setOptionShow()
         },
         removeThisChart() {
             this.activeChart(this.line)
@@ -136,11 +172,13 @@ export default {
         },
         getXAxis(line) {
             let result = []
-            return line.points.x
+            line.points.forEach(value => result.push(value.x))
+            return result
         },
         getYAxis(line) {
             let result = []
-            return line.points.y
+            line.points.forEach(value => result.push(value.y))
+            return result
         },
         isActive(item) { //判断当前俺就是否处于激活状态
             return this.checked.exist(item.name)
@@ -153,6 +191,12 @@ export default {
         // 从激活的task根据名字筛选出选中的lines
         filterLines(selected) {
             return this.getActiveTaskResult.lines.filter(value => selected.exist(value.name))
+        },
+        movedialog(e) {
+            if (this.dialogMoveAble) {
+                this.location.x += e.movementX
+                this.location.y += e.movementY
+            }
         }
     }
 }
@@ -166,13 +210,18 @@ input[type="checkbox"] {
     box-shadow: 2px 2px 2px rgba(55, 55, 55, .15);
 }
 
+.modal-dialog.modal-drag-move {
+    cursor: move;
+    position: absolute;
+}
+
 .param-block {
     /*opacity: .3;/*/
     height: 100%;
     width: 100%;
     z-index: 1041;
     /*background-color: gray;*/
-    position: absolute;
+    /*position: absolute;*/
     /*margin-left: 100%;*/
 }
 

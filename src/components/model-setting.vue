@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="getActiveTask.model">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#model" role="tab" data-toggle="tab">模型</a></li>
             <li role="presentation"><a href="#stopPoint" role="tab" data-toggle="tab">集合点</a></li>

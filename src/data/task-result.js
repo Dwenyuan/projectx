@@ -12,14 +12,14 @@
 const createTestPoint = (num) => {
     let x = []
     let y = []
+    let result = []
     for (var i = num - 1; i >= 0; i--) {
-        x.push(i)
-        y.push(Math.random() * 100)
+        result.push({
+            x:i,
+            y:(Math.random() * 100)
+        })
     }
-    return {
-        x,
-        y
-    }
+    return result
 }
 let result = {
     "start": 1477929731803,

@@ -49,7 +49,7 @@
                         <div class="col-md-3" v-for="item in getActiveTask.agents">
                             <div class="panel">
                                 <div class="panel-body well">
-                                    <div class="col-md-2"><span class="glyphicon glyphicon-flash"></span></div>
+                                    <div class="col-md-2"><span class="glyphicon glyphicon-flash" :class="status(item)"></span></div>
                                     <div class="col-md-10">地区:{{item.area}}</div>
                                     <div class="col-md-12">ip:{{item.ip}}</div>
                                 </div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="panel">
-                                <div class="panel-body well plus-bg">
+                                <div class="panel-body well plus-bg" data-toggle="modal" data-target="#agentlist">
                                     <br>
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </div>
@@ -67,9 +67,11 @@
                 </div>
             </div>
         </div>
+        <agent-list></agent-list>
     </div>
 </template>
 <script>
+import agentList from '../components/agent-list.vue'
 import modelSetting from '../components/model-setting.vue'
 import {
     mapGetters,
@@ -107,6 +109,16 @@ export default {
         selectTaskParam(script) {
             this.changeTaskParam(script)
             this.selectParamShow = true
+        },
+        status(agent) { //agent 不同的状态有不同的样式
+            switch (agent.status) {
+                case 'connected':
+                    return ['glyphicon-flash']
+                case 'connecting':
+                    return ['glyphicon-flash', 'connecting']
+                case 'disconnect':
+                    return ['glyphicon-exclamation-sign']
+            }
         }
     },
     data() {
@@ -116,7 +128,8 @@ export default {
         }
     },
     components: {
-        modelSetting
+        modelSetting,
+        agentList
     }
 }
 </script>
@@ -125,5 +138,29 @@ export default {
     /*background:url('../asset/plus.png') no-repeat 50% 50% /contain;*/
     text-align: center;
     height: 100%;
+}
+
+span.glyphicon.connecting {
+    animation: connecting .5s ease infinite;
+    -webkit-animation: connecting .5s ease infinite;
+    /* Safari 与 Chrome */
+}
+
+@keyframes connecting {
+    0% {
+        color: gray;
+    }
+    100% {
+        color: red;
+    }
+}
+
+@-webkit-keyframes connecting {
+    0% {
+        color: gray;
+    }
+    100% {
+        color: red;
+    }
 }
 </style>

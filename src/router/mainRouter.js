@@ -7,6 +7,8 @@ import logView from '../components/log-view.vue'
 import scene from './scene.vue'
 import report from './report.vue'
 import detail from './detail.vue'
+import agentList from '../components/agent-list.vue'
+
 
 Vue.use(VueRouter)
 

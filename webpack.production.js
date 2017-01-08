@@ -3,6 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
+	// devtool: '#inline-source-map',
     entry: {
         app: './src/main.js',
         echarts: ['echarts/lib/echarts', 'echarts/lib/chart/line', 'echarts/lib/chart/bar', 'echarts/lib/component/tooltip', 'echarts/lib/component/title']
@@ -54,6 +55,11 @@ module.exports = {
     vue: {
         loaders: {
             css: ExtractTextPlugin.extract('css')
+        }
+    },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
         }
     }
 }

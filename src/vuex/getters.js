@@ -1,11 +1,13 @@
 // 获取该用户所有的脚本列表
 export const getScripts = state => state.scripts //获取所有的脚本
 
+export const getUploadOpiont = state =>state.uploadOption
+
 // 获取当前选中的脚本
 export const getActiveScript = state => state.activeScript //获取当前脚本
 
 // 获取所有任务列表
-export const getTasks = state => state.tasks //获取的所有任务
+export const getTasks = state => state.scene.testcaseTasks //获取的所有任务
 
 //获取所有可能的模型 枚举列表
 export const getModelTypesEnum = state => state.modelTypesEnum

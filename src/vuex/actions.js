@@ -2,13 +2,17 @@
 // 选中脚本
 export const activeScript = ({ commit }, script) => commit('activeScript', { script })
 
+export const changeUploadOption = ({ commit }, option) => commit('changeUploadOption', { option })
+
 // 切换任务配置的脚本 
 export const changeTaskScript = ({ commit }, script) => commit('changeTaskScript', { script })
 
 // 切换任务配置的参数文件
 export const changeTaskParam = ({ commit }, param) => commit('changeTaskParam', { param })
-  
-    // 选中任务 配置任务
+
+export const selectAgent = ({ commit }, agent) => commit('selectAgent', { agent })
+
+// 选中任务 配置任务
 export const activeTask = ({ commit }, task) => commit('activeTask', { task })
 
 export const changeIsCaps = ({ commit }, isCaps) => commit('changeIsCaps', { isCaps })
@@ -62,7 +66,7 @@ export const changeStopTime = ({ commit }, stopTime) => commit('changeStopTime',
 export const changeOnlineIndex = ({ commit }, onlineIndex) => commit('changeOnlineIndex', { onlineIndex })
 
 export const changeLoopTimes = ({ commit }, loopTimes) => commit('changeLoopTimes', { loopTimes })
-    // ====================任务配置相关===============================================//
+// ====================任务配置相关===============================================//
 
 // ====================结果配置相关===============================================//
 // 选中任务执行结果
@@ -96,3 +100,9 @@ export const activeDetailURL = ({ commit }, detailTask) => commit('activeDetailU
 export const activeDetailFailURL = ({ commit }, detailTask) => commit('activeDetailFailURL', { detailTask })
 
 export const changeTask = ({ commit }, detailTask) => commit('changeTask', { detailTask })
+
+
+/**
+ * 初始化脚本列表
+ */
+export const setScripts = ({commit}, scripts) => commit('setScripts', { scripts })

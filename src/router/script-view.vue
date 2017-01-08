@@ -26,6 +26,8 @@
                                     <tr>
                                         <th>id</th>
                                         <th>名称</th>
+                                        <th>创建时间</th>
+                                        <th>最后修改时间</th>
                                         <th>备注</th>
                                     </tr>
                                 </thead>
@@ -33,14 +35,16 @@
                                     <tr v-for="item in getScripts" @click="activeScript(item)">
                                         <td>{{item.id}}</td>
                                         <td>{{item.name}}</td>
-                                        <td></td>
+                                        <td>{{item.create}}</td>
+                                        <td>{{item.modify}}</td>
+                                        <td>{{item.des}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="pull-right"><a href="#scriptManager" data-toggle="modal" class="btn btn-primary">增加</a></div>
+                                <div class="pull-right"><a href="#uploadManager" @click="changeScriptOption" data-toggle="modal" class="btn btn-primary">增加</a></div>
                             </div>
                         </div>
                     </div>
@@ -49,7 +53,11 @@
             <div class="col-md-2">
                 <div class="list-group">
                     <a href="#" class="list-group-item disabled">{{getActiveScript.id}}</a>
-                    <a href="#" class="list-group-item">{{getActiveScript.name}}</a>
+                    <a href="#" class="list-group-item disabled">{{getActiveScript.name}}</a>
+                    <a href="#" class="list-group-item disabled">{{getActiveScript.create}}</a>
+                    <a href="#" class="list-group-item disabled">{{getActiveScript.modify}}</a>
+                    <!-- <input class="from-control list-group-item"></input> -->
+                    <a href="#" class="list-group-item" contenteditable="true" @input="changeScriptDse" v-text="getActiveScript.des"></a>
                 </div>
             </div>
         </div>
@@ -69,7 +77,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="pull-right"><a href="#scriptManager" data-toggle="modal" class="btn btn-primary">增加</a></div>
+                                <div class="pull-right">
+                                    <a href="#uploadManager" @click="changeParamOption" data-toggle="modal" class="btn btn-primary">增加</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,6 +89,10 @@
     </div>
 </template>
 <script>
+import uploadOption from '../data/upload-option.js'
+import {
+    listScript
+} from　 '../asset/request-list'
 import {
     mapGetters,
     mapActions
@@ -86,14 +100,36 @@ import {
 export default {
     props: [],
     mounted() {
-
+        console.log(listScript)
+        listScript({
+            userCode: 'lin'
+        }).then(result => {
+            this.setScripts(result.data)
+        })
     },
     computed: mapGetters([
         'getScripts',
         'getActiveScript',
         'getParamFile'
     ]),
-    methods: mapActions(['activeScript']),
+    methods: {
+        ...mapActions([
+            'setScripts',
+            'activeScript',
+            'changeUploadOption'
+        ]),
+        changeParamOption() {
+            this.changeUploadOption(uploadOption.uploadParam)
+        },
+        changeScriptOption() {
+            this.changeUploadOption(uploadOption.uploadScript)
+        },
+        changeScriptDse(event){
+            this.getActiveScript.des = event.target.innerText
+            this.activeScript(this.getActiveScript)
+            console.log(event.target.innerText)
+        }
+    },
     data() {
         return {
             islist: false

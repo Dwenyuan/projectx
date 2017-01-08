@@ -1,11 +1,17 @@
 // ====================任务配置相关===============================================//
 export const activeScript = (state, { script }) => state.activeScript = script
 
+export const changeUploadOption = (state, { option }) => state.uploadOption = option
+
 export const activeTask = (state, { task }) => state.activeTask = task
 
 export const changeTaskScript = (state, { script }) => state.activeTask.script = script
 
 export const changeTaskParam = (state, { param }) => state.activeTask.param = param
+
+export const selectAgent = (state, { agent }) => {
+    state.activeTask.agents.exist(agent) ? state.activeTask.agents.remove(agent) : state.activeTask.agents.push(agent)
+}
 
 export const changeIsCaps = (state, { isCaps }) => state.activeTask.model.isCaps = isCaps
 
@@ -58,7 +64,7 @@ export const changeLoopTimes = (state, { loopTimes }) => state.activeTask.iterat
 // ====================任务配置相关===============================================//
 
 
-
+export const setScripts = (state, {scripts}) => state.scripts = scripts
 
 
 
@@ -79,12 +85,12 @@ export const addchart = (state) =>
         checked: []
     })
 
-export const removeChart = (state, { name }) => {
-    state.charts.remove(name)
+export const removeChart = (state, { chart }) => {
+    state.charts.remove(chart)
 }
 
 export const setOptionShow = (state) => state.activeChart.optionShow = !state.activeChart.optionShow
-    //=====图表 
+//=====图表 
 
 export const activeDetailTask = (state, { detailTask }) => state.activeDetailTask = detailTask
 

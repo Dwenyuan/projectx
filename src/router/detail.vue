@@ -1,7 +1,6 @@
 <template>
     <div class="panel panel-body">
-        <detail-url></detail-url>
-            <!-- <test-page></test-page> -->
+        <test-page></test-page> 
     </div>
    <!--  <div class="row">
        <div class="col-md-12">
@@ -45,7 +44,7 @@ import detailOver5 from './detail-over5.vue'
 import detailError from './detail-error.vue'
 import detailFailUrl from './detail-failurl.vue'
 import detailUrl from './detail-url.vue'
-import testPage from './detail-task-time.vue'
+import testPage from './detail-users.vue'
 import {
     mapGetters,
     mapActions

@@ -126,6 +126,7 @@
     </div>
 </template>
 <script>
+require('../asset/icheck/skins/square/blue.css')
 import {
     mapGetters,
     mapActions

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <script-manager></script-manager>
+        <upload-manager></upload-manager>
         <page-header></page-header>
         <router-view></router-view>
     </div>
@@ -8,7 +8,7 @@
 <script>
 import pageHeader from './components/page-header.vue'
 import scriptView from './router/script-view.vue'
-import scriptManager from './components/script-manager.vue'
+import uploadManager from './components/upload-manager.vue'
 import chart from './router/charts.vue'
 import summaryChart from './router/summary-task.vue'
 import logView from './components/log-view.vue'
@@ -35,14 +35,14 @@ export default {
         logView,
         pageHeader,
         scriptView,
-        scriptManager,
+        uploadManager,
         summaryChart
     }
 }
 </script>
 <style>
 .well {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 html,
